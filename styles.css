@@ -92,7 +92,7 @@
     font-size: 2em;
     color: orange;
     max-width: 300px;
-    margin: 1em auto 2em auto;
+    margin: 0 auto 2em auto;
     border-bottom: 1px solid;
   }
   .project-grid {
@@ -262,19 +262,33 @@
       padding: 2px;
  }
     h1.home{
-      font-size: 1.4em;
-      margin-left: -3em;
+      font-size: 0.8em;
+      margin-left: -9.3em;
+      white-space: nowrap;
  }
+ 
     #welcome-section p{
-      margin-left: -5.5em;
-      font-size: 0.7em;
+      margin-left: -15em;
+      font-size: 0.5em;
+      white-space: nowrap;
+      letter-spacing: 0.1px;
  }
     #projects {
-      padding: 3em  ;
+      padding: 0;
+
  }
+ #project-header{
+  font-size: 1.7em;
+   margin-top: auto;
+  padding-top: 12px;
+ }
+
     h1.contact{
       font-size: 2em;
  }
+  .contact-section{
+    margin-top: em;
+  }
     .contact-section p{
       font-size: 0.8em;
  }
