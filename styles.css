@@ -221,7 +221,7 @@ nav a:hover {
 }
 
 .contact-link i {
-  padding-right: 15px;
+  padding-right: 5px;
 }
 
 #contact-form >h3 {
@@ -331,7 +331,7 @@ footer p {
   }
 
   .contact-link a {
-    font-size: 0.5rem;
+    font-size: 0.8rem;
     padding: 2em auto;
   }
 
