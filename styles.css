@@ -288,8 +288,8 @@ footer p {
 
 @media (max-width: 620px) {
   nav a {
-    font-size: 18px;
-    padding: 2px;
+    font-size: 17px;
+    padding: 1.2em;
   }
 
   #welcome-section {
@@ -336,7 +336,7 @@ footer p {
   }
 
   .contact-link a {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     padding: 2em auto;
   }
 
