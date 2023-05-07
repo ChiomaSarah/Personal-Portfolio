@@ -6,25 +6,65 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Personal Portfolio</title>
+  
   <link rel="stylesheet" href="styles.css">
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Merienda&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
   <script src="https://kit.fontawesome.com/5b0165b934.js" crossorigin="anonymous"></script>
+
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 
 <body>
-  <header>
-    <nav>
+  <header id="font">
+    <!-- <nav>
       <ul>
         <li><a href="#home" class="nav-link">Home</a></li>
         <li><a href="#projects" class="nav-link">Projects</a></li>
         <li><a href="#contact" class="nav-link"> Contact</a></li>
       </ul>
+    </nav> -->
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      
+      <h3 class="text-light navbar-brand">Portfolio</h3>
+      
+    
+      <button class="navbar-toggler bg-dark" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+        aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+          <li class="nav-item">
+            <a href="#home" class="nav-link" id="navbar-list">
+            Home
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#projects" class="nav-link" id="navbar-list">
+            Projects
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#contact" class="nav-link" id="navbar-list">
+            Contact
+            </a>
+          </li>
+        </ul>
+      </div>
     </nav>
+   
 
   </header>
-  <main>
+  <main id="font">
     <section id="welcome-section">
       <div class="welcome-section-img">
         <p id="salute">Hi, I am</p>
@@ -68,20 +108,24 @@
             class="project-img" src="https://i.ibb.co/qYKsLRt/image.png" alt="Cloned Webpage">
           <p class="project-title">Cloned: Udemy Landing Page</p>
         </a>
-        <a target="_blank" href="https://pern-bookstore.herokuapp.com/" class="project-tile"><img class="project-img"
-            src="https://i.ibb.co/hRN6GYM/pern-bookstore-screen.png" alt="Book Store">
+        <a target="_blank" href="https://chiomasarah.github.io/Membership-Form" class="project-tile"><img
+            class="project-img" src="https://i.ibb.co/xhXgnHg/Membership-Form.jpg" alt="Cloned Webpage">
+          <p class="project-title">Membership Form</p>
+        </a>
+        <a target="_blank" href="https://pern-bookstoreapp.up.railway.app/" class="project-tile"><img class="project-img"
+            src="https://i.ibb.co/GMLyp1t/PERN-Book-Store-App.jpg" alt="Book Store">
           <p class="project-title">Book Store</p>
         </a>
-        <a target="_blank" href="https://mern--bookstore.herokuapp.com/" class="project-tile"><img class="project-img"
-            src="https://i.ibb.co/X2g0Sw6/mern-bookstore-screen.png" alt="Authenticated Book Store">
+        <a target="_blank" href="https://mern-bookstore-app.vercel.app/" class="project-tile"><img class="project-img"
+            src="https://i.ibb.co/TcyKymc/MERN-Book-Store-App.jpg" alt="Authenticated Book Store">
           <p class="project-title">Authenticated Book Store</p>
         </a>
-        <a target="_blank" href="https://koko-play.herokuapp.com/" class="project-tile"><img class="project-img"
+        <a target="_blank" href="https://koko-play.netlify.app/" class="project-tile"><img class="project-img"
             src="https://i.ibb.co/LgPpCds/koko-play-screen.png" alt="KOKO.play">
           <p class="project-title">KOKO.play</p>
         </a>
-        <a target="_blank" href="https://le-travaille.herokuapp.com/" class="project-tile"><img class="project-img"
-            src="https://i.ibb.co/HPGGHnR/le-travaille-screen.png" alt="Le-Travaille">
+        <a target="_blank" href="https://le-travaille-app.netlify.app/" class="project-tile"><img class="project-img"
+            src="https://i.ibb.co/sR7jy7h/Le-Travaille.jpg" alt="Le-Travaille">
           <p class="project-title">Le-Travaille</p>
         </a>
       </div>
@@ -122,8 +166,7 @@
     </section>
   </main>
 </body>
-<footer>
+<footer id="font">
   <p>Portfolio was designed by Sarah&#169, 2021</p>
 </footer>
-
 </html>

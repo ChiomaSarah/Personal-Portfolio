@@ -4,38 +4,19 @@
   margin: 0;
 }
 
-body {
-  font-family: "Merienda", cursive;
+#font,body {
+  font-family: "Poppins", cursive;
 }
 
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  overflow: hidden;
-}
-
-nav ul {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
+nav{
   background: purple;
 }
 
-nav li {
-  list-style: none;
-  padding: 15px 20px;
-}
-
-nav a {
-  text-decoration: none;
+#navbar-list{
   color: #fff;
-  font-size: 22px;
-  padding: 15px 30px;
 }
 
-nav a:hover {
+#navbar-list:hover {
   color: orange;
 }
 
@@ -293,10 +274,10 @@ footer p {
 }
 
 @media (max-width: 620px) {
-  nav a {
+  /* nav a {
     font-size: 17px;
     padding: 1.2em;
-  }
+  } */
 
   #welcome-section {
     height: 50vh;
