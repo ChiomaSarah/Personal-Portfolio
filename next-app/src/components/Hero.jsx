@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import Marquee from "react-fast-marquee";
 import { FaReact, FaNodeJs, FaGitAlt, FaDatabase } from "react-icons/fa";
@@ -126,9 +127,11 @@ const Hero = () => {
           <div className="relative">
             <div className="w-64 h-64 md:w-80 md:h-80 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full flex items-center justify-center p-1">
               <div className="w-full h-full bg-gray-800 rounded-full overflow-hidden border-4 border-gray-900">
-                <img
+                <Image
                   src="https://i.ibb.co/LSf0LKp/PSX-20201104-184718.jpg"
                   alt="Osuji Chioma Sarah"
+                  width={300}
+                  height={200}
                   className="w-full h-full object-cover"
                 />
               </div>

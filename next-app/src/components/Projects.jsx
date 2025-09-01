@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const Projects = () => {
   return (
     <section
@@ -93,9 +95,11 @@ const Projects = () => {
             >
               {/* Image Container */}
               <div className="relative overflow-hidden">
-                <img
+                <Image
                   src={project.src}
                   alt={project.alt}
+                  width={300}
+                  height={200}
                   className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 {/* Overlay */}
