@@ -2,7 +2,13 @@
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import Marquee from "react-fast-marquee";
-import { FaReact, FaNodeJs, FaGitAlt, FaDatabase } from "react-icons/fa";
+import {
+  FaReact,
+  FaNodeJs,
+  FaGitAlt,
+  FaDatabase,
+  FaGraduationCap,
+} from "react-icons/fa";
 import {
   SiNextdotjs,
   SiTypescript,
@@ -22,7 +28,8 @@ import {
 const Hero = () => {
   const [displayText, setDisplayText] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
-  const fullText = "4+ Years of Experience building software applications.";
+  const fullText =
+    "I am Osuji Chioma Sarah with 4+ Years of Experience building software applications.";
 
   const skills = [
     { name: "React.js", icon: <FaReact color="#61DAFB" /> },
@@ -62,16 +69,25 @@ const Hero = () => {
 
       <div className="relative z-10 w-full max-w-6xl flex flex-col lg:flex-row items-center justify-between gap-12">
         <div className="flex-1 text-center lg:text-left order-2 lg:order-1">
-          <div className="inline-block px-4 py-2 bg-blue-900/30 rounded-full border border-blue-700/50 mb-6">
+          <div className="inline-block px-4 py-2 bg-blue-900/30 rounded-full border border-blue-700/50 mb-4">
             <p className="text-blue-400 text-sm font-medium">
               Full-Stack Software Engineer
             </p>
           </div>
 
-          <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Hi, I am <span className="text-blue-400">Osuji Chioma Sarah</span>{" "}
+          <div className="flex items-center justify-center lg:justify-start mb-4">
+            <div className="flex items-center gap-2 px-4 py-2 bg-cyan-900/20 rounded-full border border-cyan-700/30">
+              <FaGraduationCap className="text-cyan-400" />
+              <p className="text-cyan-300 text-sm font-medium">
+                B.Tech. Maritime Management Technology
+              </p>
+            </div>
+          </div>
+
+          <h1 className="text-2xl md:text-3xl font-bold text-white mb-4">
+            Hi there,{" "}
             <span className="block text-xl md:text-2xl font-semibold text-gray-300 mt-3">
-              with <span className="typing-effect">{displayText}</span>
+              <span className="typing-effect">{displayText}</span>
               {currentIndex < fullText.length && (
                 <span className="inline-block w-1 h-6 md:h-8 bg-blue-500 ml-1 animate-pulse"></span>
               )}
@@ -138,19 +154,19 @@ const Hero = () => {
             </div>
 
             {/* Floating elements */}
-            <div className="absolute -top-4 -left-4 w-16 h-16 bg-blue-500/10 rounded-full flex items-center justify-center backdrop-blur-sm border border-blue-500/30">
+            <div className="absolute -top-4 -left-5 w-16 h-16 bg-blue-500/10 rounded-full flex items-center justify-center backdrop-blur-sm border border-blue-500/30">
               <FaReact className="text-2xl text-blue-400" />
             </div>
 
-            <div className="absolute -bottom-4 -right-4 w-16 h-16 bg-purple-500/10 rounded-full flex items-center justify-center backdrop-blur-sm border border-purple-500/30">
+            <div className="absolute -bottom-4 -right-5 w-16 h-16 bg-purple-500/10 rounded-full flex items-center justify-center backdrop-blur-sm border border-purple-500/30">
               <SiNextdotjs className="text-2xl text-white" />
             </div>
 
-            <div className="absolute top-1/2 -right-8 w-12 h-12 bg-green-500/10 rounded-full flex items-center justify-center backdrop-blur-sm border border-green-500/30">
+            <div className="absolute top-6 -right-7 w-12 h-12 bg-green-500/10 rounded-full flex items-center justify-center backdrop-blur-sm border border-green-500/30">
               <FaNodeJs className="text-xl text-green-400" />
             </div>
 
-            <div className="absolute bottom-8 -left-6 w-14 h-14 bg-cyan-500/10 rounded-full flex items-center justify-center backdrop-blur-sm border border-cyan-500/30">
+            <div className="absolute bottom-4 -left-8 w-14 h-14 bg-cyan-500/10 rounded-full flex items-center justify-center backdrop-blur-sm border border-cyan-500/30">
               <FaDatabase className="text-xl text-cyan-400" />
             </div>
           </div>

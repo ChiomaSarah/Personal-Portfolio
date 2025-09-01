@@ -1,4 +1,5 @@
 import { Contact, Footer, Header, Hero, Projects } from "@/components";
+import ScrollButtons from "./lib/scrollButtons";
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
       <Projects />
       <Contact />
       <Footer />
+      <ScrollButtons />
     </>
   );
 }
