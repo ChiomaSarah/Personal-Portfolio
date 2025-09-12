@@ -1,13 +1,20 @@
 "use client";
 import axios from "axios";
 import { useState } from "react";
-import { FaLinkedinIn, FaTwitter, FaGithub } from "react-icons/fa";
+import {
+  FaLinkedinIn,
+  FaTwitter,
+  FaGithub,
+  FaInfoCircle,
+} from "react-icons/fa";
 
 const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [sending, setSending] = useState(false);
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
+  const [showTooltip, setShowTooltip] = useState(false);
+  const trimmedMessage = form.message.trim();
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -16,6 +23,13 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     e.stopPropagation();
+
+    if (trimmedMessage.length < 50) {
+      setError("Message must be at least 50 characters long.");
+      setTimeout(() => setError(""), 5000);
+      return;
+    }
+
     setSending(true);
     setSuccess("");
     setError("");
@@ -41,6 +55,21 @@ const Contact = () => {
     } finally {
       setSending(false);
     }
+  };
+
+  const isFormValid =
+    form.name.trim() &&
+    form.email.trim() &&
+    trimmedMessage &&
+    trimmedMessage.length >= 50;
+
+  const getTooltipMessage = () => {
+    if (!form.name.trim()) return "Please enter your name";
+    if (!form.email.trim()) return "Please enter your email";
+    if (!form.message.trim()) return "Please enter a message";
+    if (trimmedMessage.length < 50)
+      return `Message must be at least 50 characters (${trimmedMessage.length}/50)`;
+    return "";
   };
 
   return (
@@ -71,7 +100,7 @@ const Contact = () => {
               href="https://www.linkedin.com/in/sarah-osuji-a5821b121/"
               className="group flex flex-col items-center transition-all duration-300 hover:scale-110"
             >
-              <div className="bg-white p-4 rounded-2xl shadow-2xl group-hover:shadow-blue-400/30 group-hover:bg-blue-50 transition-all duration-300 mb-3">
+              <div className="bg-white p-4 rounded-full shadow-2xl group-hover:shadow-blue-400/30 group-hover:bg-blue-50 transition-all duration-300 mb-3">
                 <FaLinkedinIn className="text-3xl md:text-4xl text-blue-600 group-hover:text-blue-700" />
               </div>
               <span className="text-white text-sm md:text-base font-medium group-hover:text-blue-300">
@@ -85,7 +114,7 @@ const Contact = () => {
               href="https://twitter.com/Honeylyte"
               className="group flex flex-col items-center transition-all duration-300 hover:scale-110"
             >
-              <div className="bg-white p-4 rounded-2xl shadow-2xl group-hover:shadow-blue-300/30 group-hover:bg-blue-50 transition-all duration-300 mb-3">
+              <div className="bg-white p-4 rounded-full shadow-2xl group-hover:shadow-blue-300/30 group-hover:bg-blue-50 transition-all duration-300 mb-3">
                 <FaTwitter className="text-3xl md:text-4xl text-blue-400 group-hover:text-blue-500" />
               </div>
               <span className="text-white text-sm md:text-base font-medium group-hover:text-blue-300">
@@ -99,7 +128,7 @@ const Contact = () => {
               href="https://github.com/ChiomaSarah"
               className="group flex flex-col items-center transition-all duration-300 hover:scale-110"
             >
-              <div className="bg-white p-4 rounded-2xl shadow-2xl group-hover:shadow-gray-400/30 group-hover:bg-gray-50 transition-all duration-300 mb-3">
+              <div className="bg-white p-4 rounded-full shadow-2xl group-hover:shadow-gray-400/30 group-hover:bg-gray-50 transition-all duration-300 mb-3">
                 <FaGithub className="text-3xl md:text-4xl text-gray-700 group-hover:text-gray-800" />
               </div>
               <span className="text-white text-sm md:text-base font-medium group-hover:text-gray-300">
@@ -141,35 +170,54 @@ const Contact = () => {
               />
             </div>
 
-            <div>
+            <div className="relative">
               <textarea
                 name="message"
-                placeholder="Your message..."
+                placeholder="Your message... (minimum 50 characters)"
                 value={form.message}
                 onChange={handleChange}
                 required
                 rows={4}
                 className="w-full px-6 py-4 bg-white/5 border border-white/20 rounded-2xl text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent transition-all duration-300 hover:bg-white/10 resize-none"
               ></textarea>
+              <div className="absolute bottom-2 right-3 text-xs text-gray-400">
+                {trimmedMessage.length}/50
+              </div>
             </div>
 
-            <div className="flex justify-center">
+            <div
+              className="flex justify-center relative"
+              onMouseEnter={() => setShowTooltip(true)}
+              onMouseLeave={() => setShowTooltip(false)}
+            >
               <button
                 type="submit"
-                disabled={
-                  sending ||
-                  !form.name.trim() ||
-                  !form.email.trim() ||
-                  !form.message.trim()
-                }
-                className="cursor-pointer w-auto px-12 py-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-bold rounded-2xl transition-all duration-500 disabled:opacity-70 disabled:cursor-default flex items-center justify-center disabled:transform-none disabled:hover:scale-100 disabled:hover:shadow-none disabled:hover:from-purple-600 disabled:hover:to-blue-600"
+                disabled={sending || !isFormValid}
+                className={`px-8 py-4 rounded-full border font-bold transition-all duration-500 transform text-center ${
+                  sending || !isFormValid
+                    ? "bg-gray-400/30 border-gray-400/50 text-gray-400 cursor-not-allowed"
+                    : "bg-white/90 border-transparent text-blue-500 hover:-translate-y-1 hover:shadow-2xl hover:shadow-blue-400/30 cursor-pointer"
+                }`}
               >
                 {sending ? (
-                  <div className="h-5 w-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                  <div className="flex items-center justify-center">
+                    <div className="h-5 w-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
+                    Sending...
+                  </div>
                 ) : (
                   "Send Message"
                 )}
               </button>
+
+              {!isFormValid && showTooltip && (
+                <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-sm px-3 py-2 rounded-lg shadow-lg z-10 whitespace-nowrap">
+                  <div className="flex items-center">
+                    <FaInfoCircle className="mr-2 text-yellow-400" />
+                    {getTooltipMessage()}
+                  </div>
+                  <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1 w-3 h-3 bg-gray-800 rotate-45"></div>
+                </div>
+              )}
             </div>
 
             {success && (

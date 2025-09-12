@@ -8,6 +8,7 @@ import {
   FaGitAlt,
   FaDatabase,
   FaGraduationCap,
+  FaCertificate,
 } from "react-icons/fa";
 import {
   SiNextdotjs,
@@ -28,6 +29,7 @@ import {
 const Hero = () => {
   const [displayText, setDisplayText] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [showCertificate, setShowCertificate] = useState(false);
   const fullText =
     "I am Osuji Chioma Sarah with 4+ Years of Experience building software applications.";
 
@@ -69,46 +71,50 @@ const Hero = () => {
 
       <div className="relative z-10 w-full max-w-6xl flex flex-col lg:flex-row items-center justify-between gap-12">
         <div className="flex-1 text-center lg:text-left order-2 lg:order-1">
-          <div className="inline-block px-4 py-2 bg-blue-900/30 rounded-full border border-blue-700/50 mb-4">
-            <p className="text-blue-400 text-sm font-medium">
-              Full-Stack Software Engineer
-            </p>
-          </div>
+          <div className="flex flex-col md:flex-row md:items-center gap-3 mb-6 justify-center lg:justify-start">
+            <div className="flex-shrink-0">
+              <div className="flex items-center gap-2 px-4 py-2 bg-blue-900/30 rounded-full border border-blue-700/50">
+                <p className="text-blue-400 text-sm font-medium whitespace-nowrap">
+                  Full-Stack Software Engineer
+                </p>
+              </div>
+            </div>
 
-          <div className="flex items-center justify-center lg:justify-start mb-4">
-            <div className="flex items-center gap-2 px-4 py-2 bg-cyan-900/20 rounded-full border border-cyan-700/30">
-              <FaGraduationCap className="text-cyan-400" />
-              <p className="text-cyan-300 text-sm font-medium">
-                B.Tech. Maritime Management Technology
-              </p>
+            <div className="flex-shrink-0">
+              <div className="flex items-center gap-2 px-4 py-2 bg-blue-900/20 rounded-full border border-blue-700/30">
+                <FaGraduationCap className="text-blue-300 flex-shrink-0" />
+                <p className="text-blue-400 text-sm font-medium whitespace-nowrap">
+                  B.Tech. Maritime Management Technology
+                </p>
+              </div>
             </div>
           </div>
 
-          <h1 className="text-2xl md:text-3xl font-bold text-white mb-4">
-            Hi there,{" "}
-            <span className="block text-xl md:text-2xl font-semibold text-gray-300 mt-3">
+          <h2 className="text-xl text-white mb-4">
+            Welcome!{" "}
+            <span className="block text-lg font-semibold text-gray-300 mt-3">
               <span className="typing-effect">{displayText}</span>
               {currentIndex < fullText.length && (
                 <span className="inline-block w-1 h-6 md:h-8 bg-blue-500 ml-1 animate-pulse"></span>
               )}
             </span>
-          </h1>
+          </h2>
 
           <p className="text-lg text-gray-300 mb-6 leading-relaxed">
             I specialize in building{" "}
             <span className="font-semibold text-white">
               secure, scalable applications
             </span>{" "}
-            and seamless API integrations, I create solutions that are both
+            and seamless API integrations, creating solutions that are both
             powerful and user-friendly.
           </p>
 
           <p className="text-lg text-gray-300 mb-8 leading-relaxed">
             My core stack includes{" "}
             <span className="font-semibold text-white">
-              React, Next.js, and Node.js
+              React, Next.js, Node.js, and Nest.js{" "}
             </span>
-            , with a strong focus on creating efficient, maintainable code that
+            with a strong focus on creating efficient, maintainable code that
             delivers exceptional user experiences.
           </p>
 
@@ -116,18 +122,42 @@ const Hero = () => {
             <a
               role="button"
               href="#projects"
-              className="px-6 py-3 bg-cyan-600 hover:bg-cyan-700 text-white font-medium rounded-lg transition-all duration-300 transform hover:-translate-y-1 text-center"
+              className="px-6 py-3 bg-cyan-900/20 rounded-full border border-cyan-700/30 text-cyan-300 font-medium transition-all duration-300 transform hover:-translate-y-1 text-center"
             >
               View My Projects
             </a>
             <a
               role="button"
               href="#contact"
-              className="px-6 py-3 bg-cyan-600 hover:bg-cyan-700 text-white font-medium rounded-lg transition-all duration-300 transform hover:-translate-y-1 text-center"
+              className="px-6 py-3 bg-cyan-900/20 rounded-full border border-cyan-700/30 text-cyan-300 font-medium transition-all duration-300 transform hover:-translate-y-1 text-center"
             >
               Contact Me
             </a>
+            <button
+              onClick={() => setShowCertificate(!showCertificate)}
+              className="px-6 py-3 bg-cyan-900/20 rounded-full border border-cyan-700/30 text-cyan-300 font-medium transition-all duration-300 transform hover:-translate-y-1 text-center flex items-center justify-center gap-2 cursor-pointer"
+            >
+              {showCertificate ? "Hide Certificate" : "View Certificate"}
+            </button>
           </div>
+
+          {showCertificate && (
+            <div className="mb-6 flex flex-col items-center lg:items-start">
+              <p className="text-gray-400 text-sm mb-2 flex items-center gap-2">
+                <FaCertificate className="text-cyan-400" />
+                Software Engineering Certificate
+              </p>
+              <div className="border-2 border-cyan-700/30 rounded-lg p-1 bg-gray-800/50">
+                <Image
+                  src="/Stutern-Certificate.jpeg"
+                  alt="Software Engineering Certificate"
+                  width={400}
+                  height={250}
+                  className="rounded-lg shadow-md hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+            </div>
+          )}
 
           <div className="flex justify-center lg:justify-start items-center gap-4">
             <div className="flex items-center gap-2">
@@ -154,19 +184,19 @@ const Hero = () => {
             </div>
 
             {/* Floating elements */}
-            <div className="absolute -top-4 -left-5 w-16 h-16 bg-blue-500/10 rounded-full flex items-center justify-center backdrop-blur-sm border border-blue-500/30">
+            <div className="absolute -top-4 -left-4 w-16 h-16 bg-blue-500/10 rounded-full flex items-center justify-center backdrop-blur-sm border border-blue-500/30">
               <FaReact className="text-2xl text-blue-400" />
             </div>
 
-            <div className="absolute -bottom-4 -right-5 w-16 h-16 bg-purple-500/10 rounded-full flex items-center justify-center backdrop-blur-sm border border-purple-500/30">
+            <div className="absolute -bottom-4 -right-4 w-16 h-16 bg-purple-500/10 rounded-full flex items-center justify-center backdrop-blur-sm border border-purple-500/30">
               <SiNextdotjs className="text-2xl text-white" />
             </div>
 
-            <div className="absolute top-6 -right-7 w-12 h-12 bg-green-500/10 rounded-full flex items-center justify-center backdrop-blur-sm border border-green-500/30">
+            <div className="absolute top-1/2 -right-8 w-12 h-12 bg-green-500/10 rounded-full flex items-center justify-center backdrop-blur-sm border border-green-500/30">
               <FaNodeJs className="text-xl text-green-400" />
             </div>
 
-            <div className="absolute bottom-4 -left-8 w-14 h-14 bg-cyan-500/10 rounded-full flex items-center justify-center backdrop-blur-sm border border-cyan-500/30">
+            <div className="absolute bottom-8 -left-6 w-14 h-14 bg-cyan-500/10 rounded-full flex items-center justify-center backdrop-blur-sm border border-cyan-500/30">
               <FaDatabase className="text-xl text-cyan-400" />
             </div>
           </div>
@@ -187,7 +217,7 @@ const Hero = () => {
             {skills.map((skill, index) => (
               <div
                 key={index}
-                className="flex items-center mx-4 px-4 py-3 bg-gray-800/50 rounded-lg hover:bg-gray-700/70 transition-all duration-300 group"
+                className="flex items-center mx-4 px-4 py-3 bg-blue-900/30 rounded-full border border-blue-700/50 hover:bg-blue-700/30 transition-all duration-300 group"
               >
                 <span className="mr-3 text-2xl group-hover:scale-110 transition-transform duration-300">
                   {skill.icon}
