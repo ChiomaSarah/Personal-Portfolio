@@ -1,5 +1,5 @@
 import { Contact, Footer, Header, Hero, Projects } from "@/components";
-import ScrollButtons from "./lib/scrollButtons";
+import ScrollButtons from "./ui/scrollButtons";
 
 export default function Home() {
   return (

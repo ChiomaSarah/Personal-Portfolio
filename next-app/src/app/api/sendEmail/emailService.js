@@ -14,7 +14,7 @@ const oAuth2Client = new google.auth.OAuth2(
 
 oAuth2Client.setCredentials({ refresh_token: REFRESH_TOKEN });
 
-export async function sendMail(to, subject, text, html, replyTo) {
+export async function emailService(to, subject, text, html, replyTo) {
   try {
     const accessToken = (await oAuth2Client.getAccessToken()).token;
 
@@ -39,7 +39,7 @@ export async function sendMail(to, subject, text, html, replyTo) {
       replyTo,
     };
 
-    const result = await transporter.sendMail(mailOptions);
+    const result = await transporter.emailService(mailOptions);
     return result;
   } catch (error) {
     console.error("Email error:", error);

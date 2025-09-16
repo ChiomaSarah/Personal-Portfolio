@@ -1,4 +1,4 @@
-import { sendMail } from "@/app/lib/sendEmail";
+import { emailService } from "@/app/api/sendEmail/emailService";
 
 export async function POST(req) {
   try {
@@ -20,7 +20,7 @@ export async function POST(req) {
                 </div>`;
     const replyTo = email;
 
-    await sendMail(process.env.GMAIL_USER, subject, text, html, replyTo);
+    await emailService(process.env.GMAIL_USER, subject, text, html, replyTo);
     console.log(`Sending email from ${email}...`);
 
     return new Response(
