@@ -18,73 +18,109 @@ const Projects = () => {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {[
-            {
-              href: "https://codepen.io/Exquisite-Sarah/full/jgeVOO",
-              src: "https://i.ibb.co/4KL3ZQc/image.png",
-              alt: "Tribute Page",
-              title: "Tribute Page",
-            },
-            {
-              href: "https://codepen.io/Exquisite-Sarah/full/PoYOYRb",
-              src: "https://i.ibb.co/28xtLKJ/image.png",
-              alt: "Survey Form",
-              title: "Survey Form",
-            },
-            {
-              href: "https://codepen.io/Exquisite-Sarah/full/oNNjZbx",
-              src: "https://i.ibb.co/55v7gmq/image.png",
-              alt: "Product Landing Page",
-              title: "Product Landing Page",
-            },
-            {
-              href: "https://codepen.io/Exquisite-Sarah/full/wvwdPab",
-              src: "https://i.ibb.co/Wshj0hF/image.png",
-              alt: "Technical Documentation Page",
-              title: "Technical Documentation",
-            },
-            {
-              href: "https://codepen.io/Exquisite-Sarah/full/XWjKNZB",
-              src: "https://i.ibb.co/7Js35SW/image.png",
-              alt: "Cloned Webpage",
-              title: "Cloned: Exile Lifestyle",
-            },
-            {
-              href: "https://codepen.io/Exquisite-Sarah/full/LYbrwgy?editors=1100",
-              src: "https://i.ibb.co/qYKsLRt/image.png",
-              alt: "Cloned Webpage",
-              title: "Cloned: Udemy Landing",
-            },
-            {
-              href: "https://chiomasarah.github.io/Membership-Form",
-              src: "https://i.ibb.co/xhXgnHg/Membership-Form.jpg",
-              alt: "Membership Form",
-              title: "Membership Form",
-            },
-            {
-              href: "https://pern-bookstoreapp.up.railway.app/",
-              src: "https://i.ibb.co/GMLyp1t/PERN-Book-Store-App.jpg",
-              alt: "Book Store",
-              title: "Book Store (PERN)",
-            },
-            {
-              href: "https://mern-bookstore-app.vercel.app/",
-              src: "https://i.ibb.co/TcyKymc/MERN-Book-Store-App.jpg",
-              alt: "Authenticated Book Store",
-              title: "Auth Book Store (MERN)",
-            },
-            {
-              href: "https://koko-play.netlify.app/",
-              src: "https://i.ibb.co/LgPpCds/koko-play-screen.png",
-              alt: "KOKO.play",
-              title: "KOKO.play",
-            },
-            {
-              href: "https://le-travaille-app.netlify.app/",
-              src: "https://i.ibb.co/6Rhtf8dY/Le-Travaille-New.png",
-              alt: "Le-Travaille",
-              title: "Le-Travaille",
-            },
+          {[            
+              {
+                href: "https://sohcahtoa-frontend-assessment.vercel.app/login",
+                src: "https://i.ibb.co/SZVMBZ3/Sohcahtoa.png",
+                alt: "Sohcahtoa",
+                title: "Sohcahtoa - Assessment"
+              },
+              {
+                href: "https://dev-blog-web.vercel.app/",
+                src: "https://i.ibb.co/rKFZ6FdJ/Dev-Blog.png",
+                alt: "Dev Blog",
+                title: "Dev Blog"
+              },
+              {
+                href: "https://weather-navigator.vercel.app/",
+                src: "https://i.ibb.co/rRdTTpBM/Weather-Navigator.png",
+                alt: "Weather Navigator",
+                title: "Weather Navigator"
+              },
+              {
+                href: "https://calculator--app.vercel.app/",
+                src: "https://i.ibb.co/4ZTkwC95/Calculator.png",
+                alt: "Calculator",
+                title: "Calculator"
+              },
+              {
+                href: "https://credpal-landing.vercel.app/",
+                src: "https://i.ibb.co/4wyX74zC/Cred-Pal-Landing.png",
+                alt: "CredPal Landing Page",
+                title: "Cloned: CredPal Landing"
+              },
+              {
+                href: "https://osuji-sarah-lendsqr-fe-test.vercel.app/",
+                src: "https://i.ibb.co/zVrbvmv8/Lendsqr-Landing.png",
+                alt: "Lendsqr Landing Page",
+                title: "Cloned: Lendsqr Landing"
+              },
+              {
+                href: "https://le-travaille-app.netlify.app/",
+                src: "https://i.ibb.co/6Rhtf8dY/Le-Travaille-New.png",
+                alt: "Le-Travaille",
+                title: "Le-Travaille"
+              },
+              {
+                href: "https://koko-play.netlify.app/",
+                src: "https://i.ibb.co/LgPpCds/koko-play-screen.png",
+                alt: "KOKO.play",
+                title: "KOKO.play"
+              },
+              {
+                href: "https://mern-bookstore-app.vercel.app/",
+                src: "https://i.ibb.co/TcyKymc/MERN-Book-Store-App.jpg",
+                alt: "Authenticated Book Store",
+                title: "Auth Book Store (MERN)"
+              },
+              {
+                href: "https://pern-bookstoreapp.up.railway.app/",
+                src: "https://i.ibb.co/GMLyp1t/PERN-Book-Store-App.jpg",
+                alt: "Book Store",
+                title: "Book Store (PERN)"
+              },
+              {
+                href: "https://chiomasarah.github.io/Membership-Form",
+                src: "https://i.ibb.co/xhXgnHg/Membership-Form.jpg",
+                alt: "Membership Form",
+                title: "Membership Form"
+              },
+              {
+                href: "https://codepen.io/Exquisite-Sarah/full/LYbrwgy?editors=1100",
+                src: "https://i.ibb.co/qYKsLRt/image.png",
+                alt: "Cloned Webpage",
+                title: "Cloned: Udemy Landing"
+              },
+              {
+                href: "https://codepen.io/Exquisite-Sarah/full/XWjKNZB",
+                src: "https://i.ibb.co/7Js35SW/image.png",
+                alt: "Cloned Webpage",
+                title: "Cloned: Exile Lifestyle"
+              },
+              {
+                href: "https://codepen.io/Exquisite-Sarah/full/wvwdPab",
+                src: "https://i.ibb.co/Wshj0hF/image.png",
+                alt: "Technical Documentation Page",
+                title: "Technical Documentation"
+              },
+              {
+                href: "https://codepen.io/Exquisite-Sarah/full/oNNjZbx",
+                src: "https://i.ibb.co/55v7gmq/image.png",
+                alt: "Product Landing Page",
+                title: "Product Landing Page"
+              },
+              {
+                href: "https://codepen.io/Exquisite-Sarah/full/PoYOYRb",
+                src: "https://i.ibb.co/28xtLKJ/image.png",
+                alt: "Survey Form",
+                title: "Survey Form"
+              },
+              {
+                href: "https://codepen.io/Exquisite-Sarah/full/jgeVOO",
+                src: "https://i.ibb.co/4KL3ZQc/image.png",
+                alt: "Tribute Page",
+                title: "Tribute Page"
+              }            
           ].map((project, index) => (
             <a
               key={index}
