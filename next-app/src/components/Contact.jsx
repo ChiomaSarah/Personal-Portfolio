@@ -25,7 +25,13 @@ const Contact = () => {
     e.stopPropagation();
 
     if (trimmedMessage.length < 50) {
-      setError("Message must be at least 50 characters long.");
+      setError(`Message must be at least 50 characters (${trimmedMessage.length}/50).`);
+      setTimeout(() => setError(""), 5000);
+      return;
+    }
+
+    if (trimmedMessage.length > 500) {
+      setError(`Message is too long (${trimmedMessage.length}/500). Please shorten your message.`);
       setTimeout(() => setError(""), 5000);
       return;
     }
@@ -61,7 +67,8 @@ const Contact = () => {
     form.name.trim() &&
     form.email.trim() &&
     trimmedMessage &&
-    trimmedMessage.length >= 50;
+    trimmedMessage.length >= 50 &&
+    trimmedMessage.length <= 500;
 
   const getTooltipMessage = () => {
     if (!form.name.trim()) return "Please enter your name";
@@ -69,6 +76,8 @@ const Contact = () => {
     if (!form.message.trim()) return "Please enter a message";
     if (trimmedMessage.length < 50)
       return `Message must be at least 50 characters (${trimmedMessage.length}/50)`;
+    if (trimmedMessage.length > 500)
+      return `Message is too long (${trimmedMessage.length}/500)`;
     return "";
   };
 
@@ -173,15 +182,24 @@ const Contact = () => {
             <div className="relative">
               <textarea
                 name="message"
-                placeholder="Your message... (minimum 50 characters)"
+                placeholder="Your message... (50-500 characters)"
                 value={form.message}
                 onChange={handleChange}
                 required
                 rows={4}
                 className="w-full px-6 py-4 bg-white/5 border border-white/20 rounded-2xl text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent transition-all duration-300 hover:bg-white/10 resize-none"
               ></textarea>
-              <div className="absolute bottom-2 right-3 text-xs text-gray-400">
-                {trimmedMessage.length}/50
+              <div className="absolute bottom-2 right-3 text-xs">
+                <span className={
+                  trimmedMessage.length < 50 || trimmedMessage.length > 500
+                    ? "text-red-400"
+                    : "text-gray-400"
+                }>
+                  {trimmedMessage.length} / 500
+                  {trimmedMessage.length < 50 && (
+                    <span className="ml-1 text-red-300">(min 50)</span>
+                  )}
+                </span>
               </div>
             </div>
 
@@ -193,11 +211,10 @@ const Contact = () => {
               <button
                 type="submit"
                 disabled={sending || !isFormValid}
-                className={`px-8 py-4 rounded-full border font-bold transition-all duration-500 transform text-center ${
-                  sending || !isFormValid
-                    ? "bg-gray-400/30 border-gray-400/50 text-gray-400 cursor-not-allowed"
-                    : "bg-white/90 border-transparent text-blue-500 hover:-translate-y-1 hover:shadow-2xl hover:shadow-blue-400/30 cursor-pointer"
-                }`}
+                className={`px-8 py-4 rounded-full border font-bold transition-all duration-500 transform text-center ${sending || !isFormValid
+                  ? "bg-gray-400/30 border-gray-400/50 text-gray-400 cursor-not-allowed"
+                  : "bg-white/90 border-transparent text-blue-500 hover:-translate-y-1 hover:shadow-2xl hover:shadow-blue-400/30 cursor-pointer"
+                  }`}
               >
                 {sending ? (
                   <div className="flex items-center justify-center">
