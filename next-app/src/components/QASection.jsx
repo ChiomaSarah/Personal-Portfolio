@@ -11,8 +11,8 @@ const qaProjects = [
     description:
       "End-to-end manual QA on a demo e-commerce app with intentional defects across multiple user accounts.",
     stats: [
-      { value: "42", label: "Test Cases" },
-      { value: "15", label: "Defects" },
+      { value: "49", label: "Test Cases" },
+      { value: "14", label: "Defects" },
       { value: "5", label: "Accounts" },
     ],
     tags: ["Manual Testing", "Defect Reporting", "Exploratory Testing"],
@@ -21,7 +21,7 @@ const qaProjects = [
   // Add more QA projects here.
 ];
 
-const QASection =()=> {
+const QASection = () => {
   return (
     <section
       id="qa"
@@ -31,13 +31,13 @@ const QASection =()=> {
           "linear-gradient(to bottom, #1a0a2e 0%, #0d0a1a 20%, #0a0f1a 60%, #0a0a12 100%)",
       }}
     >
-    
+
       <div className="absolute top-1/3 -left-40 w-96 h-96 bg-cyan-900/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-1/4 -right-40 w-80 h-80 bg-purple-900/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-     
+
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-cyan-900/20 rounded-full border border-cyan-700/30 mb-5">
             <MdOutlineFactCheck className="text-cyan-400 text-sm" />
@@ -46,7 +46,7 @@ const QASection =()=> {
             </span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-200 via-cyan-300 to-blue-400 bg-clip-text text-transparent mb-4">
-            I test what I build.
+            I break things so you don't have to.
           </h2>
           <p className="text-gray-400 max-w-lg mx-auto text-base leading-relaxed">
             Structured manual QA projects — test planning, exploratory testing,
@@ -62,7 +62,7 @@ const QASection =()=> {
               key={project.name}
               className="group relative bg-white/[0.03] border border-white/10 rounded-2xl overflow-hidden hover:border-cyan-700/40 hover:shadow-2xl hover:shadow-cyan-950/30 transition-all duration-300 hover:-translate-y-1 flex flex-col"
             >
-        
+
               <div className="relative overflow-hidden h-44">
                 <img
                   src={project.screenshot}
@@ -71,7 +71,7 @@ const QASection =()=> {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-950/40 to-transparent" />
 
-             
+
                 <div className="absolute bottom-3 left-4">
                   <p className="text-white font-semibold text-sm">{project.name}</p>
                   <p className="text-gray-400 text-xs">{project.url.replace("https://", "")}</p>

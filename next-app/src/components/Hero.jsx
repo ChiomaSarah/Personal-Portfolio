@@ -9,7 +9,9 @@ import {
   FaDatabase,
   FaGraduationCap,
   FaCertificate,
+  FaBug,
 } from "react-icons/fa";
+import { MdOutlineFactCheck } from "react-icons/md";
 import {
   SiNextdotjs,
   SiTypescript,
@@ -35,21 +37,25 @@ const Hero = () => {
 
   const skills = [
     { name: "React.js", icon: <FaReact color="#61DAFB" /> },
-    { name: "Next.js", icon: <SiNextdotjs color="#000000" /> },
+    { name: "Next.js", icon: <SiNextdotjs color="#ffffff" /> },
     { name: "TypeScript", icon: <SiTypescript color="#3178C6" /> },
     { name: "Tailwind CSS", icon: <SiTailwindcss color="#06B6D4" /> },
     { name: "Material UI", icon: <SiMaterialdesign color="#0081CB" /> },
     { name: "Node.js", icon: <FaNodeJs color="#339933" /> },
     { name: "Nest.js", icon: <SiNestjs color="#E0234E" /> },
-    { name: "Express.js", icon: <SiExpress color="#000000" /> },
+    { name: "Express.js", icon: <SiExpress color="#80e3ec" /> },
     { name: "PostgreSQL", icon: <SiPostgresql color="#4169E1" /> },
     { name: "MySQL", icon: <SiMysql color="#4479A1" /> },
     { name: "MongoDB", icon: <SiMongodb color="#47A248" /> },
-    { name: "JWT", icon: <SiJsonwebtokens color="#000000" /> },
+    { name: "JWT", icon: <SiJsonwebtokens color="#e023a1" /> },
     { name: "AppCheck", icon: <SiFirebase color="#FFCA28" /> },
     { name: "Git", icon: <FaGitAlt color="#F05032" /> },
     { name: "Jest", icon: <SiJest color="#C21325" /> },
     { name: "Postman", icon: <SiPostman color="#FF6C37" /> },
+    { name: "Manual Testing", icon: <MdOutlineFactCheck color="#00838F" /> },
+    { name: "Test Case Design", icon: <MdOutlineFactCheck color="#00838F" /> },
+    { name: "Requirements Analysis", icon: <MdOutlineFactCheck color="#00838F" /> },
+    { name: "Defect Tracking", icon: <FaBug color="#00838F" /> },
   ];
 
   useEffect(() => {
@@ -75,7 +81,7 @@ const Hero = () => {
             <div className="flex-shrink-0">
               <div className="flex items-center gap-2 px-4 py-2 bg-blue-900/30 rounded-full border border-blue-700/50">
                 <p className="text-blue-400 text-sm font-medium whitespace-nowrap">
-                  Full-Stack Software Engineer
+                  Full-Stack Software Engineer & QA Tester
                 </p>
               </div>
             </div>
@@ -206,7 +212,7 @@ const Hero = () => {
       <div className="relative z-10 w-full mt-16 max-w-6xl order-3">
         <div className="mb-6 text-center">
           <h3 className="text-gray-400 text-sm font-semibold tracking-wider uppercase mb-2">
-            Technologies I Work With
+            Technologies & Skills
           </h3>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full"></div>
         </div>
