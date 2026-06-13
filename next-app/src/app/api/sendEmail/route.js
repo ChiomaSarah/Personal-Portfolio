@@ -102,7 +102,7 @@ export async function POST(req) {
     `;
     const replyTo = email;
 
-    await emailService(process.env.NEXT_PUBLIC_EMAIL, subject, text, html, replyTo);
+    await emailService(process.env.EMAIL, subject, text, html, replyTo);
     console.log(`Sending email from ${email}...`);
 
     return new Response(
