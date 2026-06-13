@@ -45,7 +45,7 @@ const QASection = () => {
               QA & Testing
             </span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-200 via-cyan-300 to-blue-400 bg-clip-text text-transparent mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-200 via-cyan-300 to-blue-400 bg-clip-text text-transparent pb-4">
             I break things so you don't have to.
           </h2>
           <p className="text-gray-400 max-w-lg mx-auto text-base leading-relaxed">
