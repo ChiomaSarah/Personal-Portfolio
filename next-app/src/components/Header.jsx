@@ -15,6 +15,7 @@ const Header = () => {
               src="/logo.png"
               alt="Sarah's Logo"
               fill
+              sizes="64px"
               className="object-contain p-1.2 brightness-110 contrast-125"
               priority
             />
@@ -87,6 +88,7 @@ const Header = () => {
                 src="/logo.png"
                 alt="Sarah's Logo"
                 fill
+                sizes="80px"
                 className="object-contain p-1.2 brightness-110 contrast-125"
               />
             </div>
