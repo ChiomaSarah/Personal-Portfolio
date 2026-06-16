@@ -60,7 +60,7 @@ export const projectItems = [
     title: "Auth Book Store (MERN)",
   },
   {
-    href: "https://pern-bookstoreapp.up.railway.app/",
+    href: "https://pern-bookstore-app.vercel.app/",
     src: "https://i.ibb.co/GMLyp1t/PERN-Book-Store-App.jpg",
     alt: "Book Store Thumbnail",
     title: "Book Store (PERN)",
