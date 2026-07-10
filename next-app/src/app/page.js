@@ -1,4 +1,11 @@
-import { Contact, Footer, Header, Hero, Projects, QASection } from "@/components";
+import {
+  Contact,
+  Footer,
+  Header,
+  Hero,
+  Projects,
+  QASection,
+} from "@/app/components";
 import ScrollButtons from "./ui/scrollButtons";
 
 export default function Home() {

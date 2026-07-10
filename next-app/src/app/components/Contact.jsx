@@ -25,13 +25,17 @@ const Contact = () => {
     e.stopPropagation();
 
     if (trimmedMessage.length < 50) {
-      setError(`Message must be at least 50 characters (${trimmedMessage.length}/50).`);
+      setError(
+        `Message must be at least 50 characters (${trimmedMessage.length}/50).`,
+      );
       setTimeout(() => setError(""), 5000);
       return;
     }
 
     if (trimmedMessage.length > 500) {
-      setError(`Message is too long (${trimmedMessage.length}/500). Please shorten your message.`);
+      setError(
+        `Message is too long (${trimmedMessage.length}/500). Please shorten your message.`,
+      );
       setTimeout(() => setError(""), 5000);
       return;
     }
@@ -40,13 +44,13 @@ const Contact = () => {
     setSuccess("");
     setError("");
     try {
-      const res = await axios.post("/api/sendEmail", form, {
+      const { status } = await axios.post("/api/sendEmail", form, {
         headers: {
           "Content-Type": "application/json",
         },
       });
 
-      if (res.status === 200) {
+      if (status === 200) {
         setSuccess("Message sent successfully!");
         setForm({ name: "", email: "", message: "" });
         setTimeout(() => setSuccess(""), 5000);
@@ -190,11 +194,13 @@ const Contact = () => {
                 className="w-full px-6 py-4 bg-white/5 border border-white/20 rounded-2xl text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent transition-all duration-300 hover:bg-white/10 resize-none"
               ></textarea>
               <div className="absolute bottom-2 right-3 text-xs">
-                <span className={
-                  trimmedMessage.length < 50 || trimmedMessage.length > 500
-                    ? "text-red-400"
-                    : "text-gray-400"
-                }>
+                <span
+                  className={
+                    trimmedMessage.length < 50 || trimmedMessage.length > 500
+                      ? "text-red-400"
+                      : "text-gray-400"
+                  }
+                >
                   {trimmedMessage.length} / 500
                   {trimmedMessage.length < 50 && (
                     <span className="ml-1 text-red-300">(min 50)</span>
@@ -211,10 +217,11 @@ const Contact = () => {
               <button
                 type="submit"
                 disabled={sending || !isFormValid}
-                className={`px-8 py-4 rounded-full border font-bold transition-all duration-500 transform text-center ${sending || !isFormValid
-                  ? "bg-gray-400/30 border-gray-400/50 text-gray-400 cursor-not-allowed"
-                  : "bg-white/90 border-transparent text-blue-500 hover:-translate-y-1 hover:shadow-2xl hover:shadow-blue-400/30 cursor-pointer"
-                  }`}
+                className={`px-8 py-4 rounded-full border font-bold transition-all duration-500 transform text-center ${
+                  sending || !isFormValid
+                    ? "bg-gray-400/30 border-gray-400/50 text-gray-400 cursor-not-allowed"
+                    : "bg-white/90 border-transparent text-blue-500 hover:-translate-y-1 hover:shadow-2xl hover:shadow-blue-400/30 cursor-pointer"
+                }`}
               >
                 {sending ? (
                   <div className="flex items-center justify-center">

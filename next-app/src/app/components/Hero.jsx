@@ -5,58 +5,22 @@ import Marquee from "react-fast-marquee";
 import {
   FaReact,
   FaNodeJs,
-  FaGitAlt,
   FaDatabase,
   FaGraduationCap,
   FaCertificate,
-  FaBug,
+  FaChevronLeft,
+  FaChevronRight,
 } from "react-icons/fa";
-import { MdOutlineFactCheck } from "react-icons/md";
-import {
-  SiNextdotjs,
-  SiTypescript,
-  SiTailwindcss,
-  SiMaterialdesign,
-  SiNestjs,
-  SiExpress,
-  SiPostgresql,
-  SiMongodb,
-  SiMysql,
-  SiJest,
-  SiPostman,
-  SiJsonwebtokens,
-  SiFirebase,
-} from "react-icons/si";
+import { SiNextdotjs } from "react-icons/si";
+import { certificates } from "./certificates";
+import { skills } from "./skills";
 
 const Hero = () => {
   const [displayText, setDisplayText] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [showCertificate, setShowCertificate] = useState(false);
+  const [currentCertIndex, setCurrentCertIndex] = useState(0);
   const fullText =
     "I am Osuji Chioma Sarah with 4+ Years of Experience building software applications.";
-
-  const skills = [
-    { name: "React.js", icon: <FaReact color="#61DAFB" /> },
-    { name: "Next.js", icon: <SiNextdotjs color="#ffffff" /> },
-    { name: "TypeScript", icon: <SiTypescript color="#3178C6" /> },
-    { name: "Tailwind CSS", icon: <SiTailwindcss color="#06B6D4" /> },
-    { name: "Material UI", icon: <SiMaterialdesign color="#0081CB" /> },
-    { name: "Node.js", icon: <FaNodeJs color="#339933" /> },
-    { name: "Nest.js", icon: <SiNestjs color="#E0234E" /> },
-    { name: "Express.js", icon: <SiExpress color="#80e3ec" /> },
-    { name: "PostgreSQL", icon: <SiPostgresql color="#4169E1" /> },
-    { name: "MySQL", icon: <SiMysql color="#4479A1" /> },
-    { name: "MongoDB", icon: <SiMongodb color="#47A248" /> },
-    { name: "JWT", icon: <SiJsonwebtokens color="#e023a1" /> },
-    { name: "AppCheck", icon: <SiFirebase color="#FFCA28" /> },
-    { name: "Git", icon: <FaGitAlt color="#F05032" /> },
-    { name: "Jest", icon: <SiJest color="#C21325" /> },
-    { name: "Postman", icon: <SiPostman color="#FF6C37" /> },
-    { name: "Manual Testing", icon: <MdOutlineFactCheck color="#00838F" /> },
-    { name: "Test Case Design", icon: <MdOutlineFactCheck color="#00838F" /> },
-    { name: "Requirements Analysis", icon: <MdOutlineFactCheck color="#00838F" /> },
-    { name: "Defect Tracking", icon: <FaBug color="#00838F" /> },
-  ];
 
   useEffect(() => {
     if (currentIndex < fullText.length) {
@@ -68,6 +32,18 @@ const Hero = () => {
       return () => clearTimeout(timeout);
     }
   }, [currentIndex]);
+
+  const prevCertificate = () => {
+    setCurrentCertIndex((prev) =>
+      prev === 0 ? certificates.length - 1 : prev - 1,
+    );
+  };
+
+  const nextCertificate = () => {
+    setCurrentCertIndex((prev) =>
+      prev === certificates.length - 1 ? 0 : prev + 1,
+    );
+  };
 
   return (
     <section className="relative w-full min-h-screen flex flex-col justify-center items-center bg-gray-900 overflow-hidden px-4 py-12">
@@ -124,7 +100,7 @@ const Hero = () => {
             delivers exceptional user experiences.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 mb-8 justify-center lg:justify-start">
+          <div className="flex flex-wrap gap-4 mb-8 justify-center lg:justify-start">
             <a
               role="button"
               href="#projects"
@@ -140,30 +116,102 @@ const Hero = () => {
               Contact Me
             </a>
             <button
-              onClick={() => setShowCertificate(!showCertificate)}
+              onClick={() => {
+                const certSection = document.getElementById(
+                  "certificate-section",
+                );
+                if (certSection) {
+                  certSection.classList.toggle("hidden");
+                }
+              }}
               className="px-6 py-3 bg-cyan-900/20 rounded-full border border-cyan-700/30 text-cyan-300 font-medium transition-all duration-300 transform hover:-translate-y-1 text-center flex items-center justify-center gap-2 cursor-pointer"
             >
-              {showCertificate ? "Hide Certificate" : "View Certificate"}
+              <FaCertificate className="text-cyan-400" />
+              View Certificates
             </button>
           </div>
 
-          {showCertificate && (
-            <div className="mb-6 flex flex-col items-center lg:items-start">
-              <p className="text-gray-400 text-sm mb-2 flex items-center gap-2">
-                <FaCertificate className="text-cyan-400" />
-                Software Engineering Certificate
-              </p>
-              <div className="border-2 border-cyan-700/30 rounded-lg p-1 bg-gray-800/50">
-                <Image
-                  src="/Stutern-Certificate.jpeg"
-                  alt="Software Engineering Certificate"
-                  width={400}
-                  height={250}
-                  className="rounded-lg shadow-md hover:scale-105 transition-transform duration-300"
-                />
+          {/* Certificate Carousel */}
+          <div id="certificate-section" className="mb-6 hidden">
+            <div className="flex flex-col items-center lg:items-start">
+              <div className="relative w-full max-w-md mx-auto lg:mx-0">
+                {/* Certificate Image with Hover Overlay */}
+                <div className="border-2 border-cyan-700/30 rounded-lg p-1 bg-gray-800/50 relative group">
+                  <a
+                    href={certificates[currentCertIndex].src}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block relative"
+                  >
+                    <Image
+                      src={certificates[currentCertIndex].src}
+                      alt={certificates[currentCertIndex].alt}
+                      width={400}
+                      height={250}
+                      className="rounded-lg shadow-md transition-transform duration-300 w-full h-auto"
+                    />
+
+                    {/* Hover Overlay */}
+                    <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg flex items-center justify-center cursor-pointer">
+                      <div className="text-center">
+                        <FaCertificate className="text-4xl text-cyan-400 mx-auto mb-2" />
+                        <p className="text-white text-sm font-medium">
+                          Click to view full size
+                        </p>
+                        <p className="text-gray-400 text-xs mt-1">
+                          Opens in new tab
+                        </p>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+
+                {/* Navigation Arrows */}
+                {certificates.length > 1 && (
+                  <>
+                    <button
+                      onClick={prevCertificate}
+                      className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white p-2 rounded-full transition-all duration-200 hover:scale-110"
+                      aria-label="Previous certificate"
+                    >
+                      <FaChevronLeft className="w-4 h-4" />
+                    </button>
+                    <button
+                      onClick={nextCertificate}
+                      className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white p-2 rounded-full transition-all duration-200 hover:scale-110"
+                      aria-label="Next certificate"
+                    >
+                      <FaChevronRight className="w-4 h-4" />
+                    </button>
+
+                    {/* Dots Indicator */}
+                    <div className="flex justify-center mt-4 gap-2">
+                      {certificates.map((_, index) => (
+                        <button
+                          key={index}
+                          onClick={() => setCurrentCertIndex(index)}
+                          className={`h-2 rounded-full transition-all duration-300 ${
+                            index === currentCertIndex
+                              ? "w-8 bg-gradient-to-r from-cyan-400 to-purple-400"
+                              : "w-2 bg-gray-600 hover:bg-gray-400"
+                          }`}
+                          aria-label={`Go to certificate ${index + 1}`}
+                        />
+                      ))}
+                    </div>
+                  </>
+                )}
+
+                {/* Certificate Title */}
+                <p className="text-gray-300 text-sm mt-3 text-center">
+                  {certificates[currentCertIndex].title}
+                </p>
+                <p className="text-gray-500 text-xs text-center">
+                  {certificates[currentCertIndex].institution}
+                </p>
               </div>
             </div>
-          )}
+          </div>
 
           <div className="flex justify-center lg:justify-start items-center gap-4">
             <div className="flex items-center gap-2">
