@@ -1,5 +1,5 @@
 {
-  "name": "next-app",
+  "name": "Sarah Osuji's Portfolio",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -16,7 +16,7 @@
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "react-fast-marquee": "^1.6.5",
-    "react-icons": "^5.5.0",
+    "react-icons": "^5.7.0",
     "resend": "^6.12.4"
   },
   "devDependencies": {
